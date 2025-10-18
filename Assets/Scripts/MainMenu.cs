@@ -30,17 +30,4 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Leaderboard does not currently exist or link is not setup in the code.");
         // Example once we finally build leadeboard: SceneManager.LoadScene("LeaderboardScene");
     }
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
