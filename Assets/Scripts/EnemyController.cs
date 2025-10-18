@@ -18,17 +18,14 @@ public class EnemyController : MonoBehaviour
         InvokeRepeating(nameof(ChangeDirection), 0f, changeDirectionRate);
     }
 
-    // Update is called once per frame
-    //
-    void Update()
-    {
-        
-    }
-
     // Turn around when the enemy hits a wall
     void OnCollisionEnter2D(Collision2D collision)
     {
-
+        if (collision.gameObject.CompareTag("Border"))
+        {
+            direction = new Vector2(direction.x * -1, direction.y * -1);
+            rb.linearVelocity = direction * speed;
+        }
     }
     
     private void ChangeDirection()
