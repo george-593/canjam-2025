@@ -18,8 +18,7 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Game starting...");
-        // Needs to be changed to level 1 once it's added. 
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Level1");
     }   
 
 
