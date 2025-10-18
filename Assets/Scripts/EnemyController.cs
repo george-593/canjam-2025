@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -5,6 +6,8 @@ public class EnemyController : MonoBehaviour
 {
     public float speed = 1.0f;
     public float changeDirectionRate = 1.0f;
+    public float minRandomizationTime = 0.01f;
+    public float maxRandomizationTime = 0.25f;
 
     private Rigidbody2D rb;
     private Vector2 direction = new Vector2(0, 0);
@@ -27,12 +30,20 @@ public class EnemyController : MonoBehaviour
             rb.linearVelocity = direction * speed;
         }
     }
-    
+
     private void ChangeDirection()
     {
+        StartCoroutine(WaitRandomTime());
+
         float randomAngle = Random.Range(0f, 360f);
         float radians = randomAngle * Mathf.Deg2Rad;
         direction = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)).normalized;
         rb.linearVelocity = direction * speed;
+    }
+
+    private IEnumerator WaitRandomTime()
+    {
+        float waitTime = Random.Range(minRandomizationTime, maxRandomizationTime);
+        yield return new WaitForSecondsRealtime(waitTime);
     }
 }
