@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
     // Turn around when the enemy hits a wall
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Border"))
+        if (collision.gameObject.CompareTag("Border") || collision.gameObject.CompareTag("Enemy"))
         {
             direction = new Vector2(direction.x * -1, direction.y * -1);
             rb.linearVelocity = direction * speed;
