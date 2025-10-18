@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Border
-  - Enemy
+  - Enemies
   layers:
   - Default
   - TransparentFX
