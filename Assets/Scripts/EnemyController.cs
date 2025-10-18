@@ -6,8 +6,8 @@ public class EnemyController : MonoBehaviour
 {
     public float speed = 1.0f;
     public float changeDirectionRate = 1.0f;
-    public float minRandomizationTime = 0.01f;
-    public float maxRandomizationTime = 0.25f;
+    public float minRandomizationTime = 0.1f;
+    public float maxRandomizationTime = 1.25f;
 
     private Rigidbody2D rb;
     private Vector2 direction = new Vector2(0, 0);
@@ -26,7 +26,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Border") || collision.gameObject.CompareTag("Enemy"))
         {
-            direction = new Vector2(direction.x * -1, direction.y * -1);
+            direction = Vector2.Reflect(direction.normalized, collision.contacts[0].normal);
             rb.linearVelocity = direction * speed;
         }
     }
