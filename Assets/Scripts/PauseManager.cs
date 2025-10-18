@@ -27,6 +27,6 @@ public class PauseManager : MonoBehaviour
     {
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0 : 1;
-        target.SetActive(!target.activeSelf);
+        if (target) target.SetActive(!target.activeSelf);
     }
 }
