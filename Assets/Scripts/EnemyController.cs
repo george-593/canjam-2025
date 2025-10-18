@@ -5,9 +5,8 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public float speed = 1.0f;
-    public float changeDirectionRate = 1.0f;
-    public float minRandomizationTime = 0.1f;
-    public float maxRandomizationTime = 1.25f;
+    public float minWaitTime = 3f;
+    public float maxWaitTime = 5f;
 
     private Rigidbody2D rb;
     private Vector2 direction = new Vector2(0, 0);
@@ -17,8 +16,9 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        changeRandomDirection();
 
-        InvokeRepeating(nameof(ChangeDirection), 0f, changeDirectionRate);
+        StartCoroutine(ChangeDirectionRoutine());
     }
 
     // Turn around when the enemy hits a wall
@@ -31,19 +31,24 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void ChangeDirection()
+    private IEnumerator ChangeDirectionRoutine()
     {
-        StartCoroutine(WaitRandomTime());
 
+        while (true)
+        {
+            // Wait for random amount of time
+            float waitTime = Random.Range(minWaitTime, maxWaitTime);
+            yield return new WaitForSeconds(waitTime);
+
+            changeRandomDirection();
+        }
+    }
+
+    private void changeRandomDirection()
+    {
         float randomAngle = Random.Range(0f, 360f);
         float radians = randomAngle * Mathf.Deg2Rad;
         direction = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)).normalized;
         rb.linearVelocity = direction * speed;
-    }
-
-    private IEnumerator WaitRandomTime()
-    {
-        float waitTime = Random.Range(minRandomizationTime, maxRandomizationTime);
-        yield return new WaitForSecondsRealtime(waitTime);
     }
 }
