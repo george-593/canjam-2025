@@ -1,44 +1,32 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
-	public GameObject pauseMenuRoot;   // assign "PauseMenu"
-	public Selectable firstSelected;   // drag "Resume Button" here (optional)
+    [SerializeField] private GameObject target;
+    private bool isPaused = false;
 
-	bool isPaused;
+    // Update is called once per frame
+    private void Update()
+    {
+        // Toggle the target when the escape key is pressed
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+			TogglePause();
+        }
+    }
 
-	void Awake()
-	{
-		if (pauseMenuRoot != null) pauseMenuRoot.SetActive(false);
-	}
-
-	void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Escape))
-		{
-			if (isPaused) Resume();
-			else Pause();
-		}
-	}
-
-	public void Pause()
-	{
-		isPaused = true;
-		pauseMenuRoot.SetActive(true);
-		Time.timeScale = 0f;
-		AudioListener.pause = true;
-
-		if (firstSelected != null && EventSystem.current != null)
-			EventSystem.current.SetSelectedGameObject(firstSelected.gameObject);
-	}
-
-	public void Resume()
+	// Unpause the game since it might already be paused
+	private void Start()
 	{
 		isPaused = false;
-		pauseMenuRoot.SetActive(false);
-		Time.timeScale = 1f;
-		AudioListener.pause = false;
+		Time.timeScale = 1;
+		if (target) target.SetActive(false);
 	}
+
+	public void TogglePause()
+    {
+        isPaused = !isPaused;
+        Time.timeScale = isPaused ? 0 : 1;
+        target.SetActive(!target.activeSelf);
+    }
 }
