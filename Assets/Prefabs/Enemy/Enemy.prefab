@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8554fbcfaaa464ff4b060cef32cc3cf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 3
   minWaitTime: 3
   maxWaitTime: 5
   hoverScaleSize: 1.2
