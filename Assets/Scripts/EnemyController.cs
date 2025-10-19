@@ -99,7 +99,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            livesManager.addStrike();
+            livesManager.AddStrike();
         }
     }
 

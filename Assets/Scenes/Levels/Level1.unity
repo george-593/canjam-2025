@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &95025424 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6461910756449269872, guid: b88ae4f820d4a49e1b25bd73d3687421, type: 3}
+  m_PrefabInstance: {fileID: 1365617612}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &221468296
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -802,6 +813,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5911729098148457778, guid: a55a939ae88f94a4c83697212626828a, type: 3}
+      propertyPath: HUDLivesText
+      value: 
+      objectReference: {fileID: 95025424}
+    - target: {fileID: 5911729098148457778, guid: a55a939ae88f94a4c83697212626828a, type: 3}
       propertyPath: winLivesText
       value: 
       objectReference: {fileID: 1507080741}
@@ -1198,6 +1213,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 4109832867726253006, guid: b88ae4f820d4a49e1b25bd73d3687421, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 156c7eaabf5e54fb08ce5bad47b8cf00, type: 2}
+    - target: {fileID: 4109832867726253006, guid: b88ae4f820d4a49e1b25bd73d3687421, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3452890668227504643, guid: 156c7eaabf5e54fb08ce5bad47b8cf00, type: 2}
     - target: {fileID: 5434472933144261918, guid: b88ae4f820d4a49e1b25bd73d3687421, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

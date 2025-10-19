@@ -309,6 +309,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &367995177 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6461910756449269872, guid: b88ae4f820d4a49e1b25bd73d3687421, type: 3}
+  m_PrefabInstance: {fileID: 5999593912618814625}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &505079198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1598,6 +1609,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5911729098148457778, guid: a55a939ae88f94a4c83697212626828a, type: 3}
+      propertyPath: HUDLivesText
+      value: 
+      objectReference: {fileID: 367995177}
     - target: {fileID: 5911729098148457778, guid: a55a939ae88f94a4c83697212626828a, type: 3}
       propertyPath: winLivesText
       value: 
