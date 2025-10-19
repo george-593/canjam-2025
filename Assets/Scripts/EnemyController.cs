@@ -58,7 +58,7 @@ public class EnemyController : MonoBehaviour
         if (isOddOneOut)
         {
             // Win UI, move onto next level
-            WinUIManager winManager = GameObject.Find("WinUIManagerComponent").GetComponent<WinUIManager>();
+            WinManager winManager = GameObject.Find("WinManager").GetComponent<WinManager>();
             winManager.OnWin();
         } else
         {
