@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     public bool isOddOneOut = false;
 
     private Rigidbody2D rb;
+    private WinManager winManager;
     private Vector2 direction = new Vector2(0, 0);
 
 
@@ -17,6 +18,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        winManager = GameObject.Find("WinManager").GetComponent<WinManager>();
         changeRandomDirection();
 
         StartCoroutine(ChangeDirectionRoutine());
@@ -58,7 +60,6 @@ public class EnemyController : MonoBehaviour
         if (isOddOneOut)
         {
             // Win UI, move onto next level
-            WinManager winManager = GameObject.Find("WinManager").GetComponent<WinManager>();
             winManager.OnWin();
         } else
         {
