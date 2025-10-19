@@ -22,15 +22,15 @@ public class LeaderboardManager : MonoBehaviour
     {
         // Create and add the new entry
         LeaderboardEntry newEntry = new LeaderboardEntry(playerName, score);
-        leaderboard.leaderbord.Add(newEntry);
+        leaderboard.leaderboard.Add(newEntry);
 
         // Sort the list (lower scores first)
-        leaderboard.leaderbord.Sort();
+        leaderboard.leaderboard.Sort();
 
         // Keep only the top maxEntries
-        if (leaderboard.leaderbord.Count > maxEntries)
+        if (leaderboard.leaderboard.Count > maxEntries)
         {
-            leaderboard.leaderbord = leaderboard.leaderbord.GetRange(0, maxEntries);
+            leaderboard.leaderboard = leaderboard.leaderboard.GetRange(0, maxEntries);
         }
 
         // Save the updated data
@@ -42,14 +42,14 @@ public class LeaderboardManager : MonoBehaviour
     // Get the top entries
     public List<LeaderboardEntry> GetTopEntries()
     {
-        return new List<LeaderboardEntry>(leaderboard.leaderbord);
+        return new List<LeaderboardEntry>(leaderboard.leaderboard);
     }
 
     // Get the top entry (best score)
     public LeaderboardEntry GetTopEntry()
     {
-        if (leaderboard.leaderbord.Count > 0)
-            return leaderboard.leaderbord[0];
+        if (leaderboard.leaderboard.Count > 0)
+            return leaderboard.leaderboard[0];
         else
             return new LeaderboardEntry("No entry", int.MaxValue);
     }
@@ -76,7 +76,7 @@ public class LeaderboardManager : MonoBehaviour
             {
                 string json = File.ReadAllText(saveFilePath);
                 leaderboard = JsonUtility.FromJson<Leaderboard>(json);
-                if (leaderboard == null || leaderboard.leaderbord == null)
+                if (leaderboard == null || leaderboard.leaderboard == null)
                     leaderboard = new Leaderboard();
                 Debug.Log("Loaded leaderboard from " + saveFilePath);
             }

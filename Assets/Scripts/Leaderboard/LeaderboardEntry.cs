@@ -27,5 +27,5 @@ public class LeaderboardEntry : IComparable<LeaderboardEntry>
 [Serializable]
 public class Leaderboard
 {
-    public List<LeaderboardEntry> leaderbord = new List<LeaderboardEntry>();
+    public List<LeaderboardEntry> leaderboard = new List<LeaderboardEntry>();
 }
