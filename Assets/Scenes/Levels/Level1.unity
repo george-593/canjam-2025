@@ -349,6 +349,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1721794862}
     m_Modifications:
     - target: {fileID: 1062821113827697044, guid: 9790ef2f254dd4e4cbf774de95760094, type: 3}
+      propertyPath: isOddOneOut
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062821113827697044, guid: 9790ef2f254dd4e4cbf774de95760094, type: 3}
       propertyPath: rotationAmount
       value: 90
       objectReference: {fileID: 0}
@@ -406,6 +410,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5215557101561827880, guid: 9790ef2f254dd4e4cbf774de95760094, type: 3}
   m_PrefabInstance: {fileID: 505079198}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &509416370 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6220121795458534789, guid: b69268895f0934bc7a1fac87916a05e3, type: 3}
+  m_PrefabInstance: {fileID: 2138687893}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &730782531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -903,6 +918,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerHUDText: {fileID: 2032646421}
+  winElapsedTime: {fileID: 1623441684}
+  winCurrentTime: {fileID: 509416370}
   previousTime: 0
   currentTime: 0
 --- !u!4 &1021507598
@@ -1193,6 +1210,17 @@ Transform:
   - {fileID: 730950035}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1623441684 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1764317278338375254, guid: b69268895f0934bc7a1fac87916a05e3, type: 3}
+  m_PrefabInstance: {fileID: 2138687893}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1721794861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1593,6 +1621,10 @@ PrefabInstance:
     - target: {fileID: 6706666621038711010, guid: b69268895f0934bc7a1fac87916a05e3, type: 3}
       propertyPath: m_Name
       value: WinManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8024528611061144620, guid: b69268895f0934bc7a1fac87916a05e3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
