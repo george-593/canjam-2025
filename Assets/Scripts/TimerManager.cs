@@ -10,8 +10,8 @@ public class TimerManager : MonoBehaviour
 
     [Header("Time Settings")]
     // Total elapsed time from the last level (0 if first level)
-    public float previousTime;
-    public float currentTime;
+    [SerializeField] private float previousTime;
+    [SerializeField] private float currentTime;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
