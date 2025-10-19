@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 // Represents a single entry on the leaderboard
 [Serializable]
