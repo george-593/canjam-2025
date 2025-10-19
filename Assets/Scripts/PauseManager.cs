@@ -23,7 +23,8 @@ public class PauseManager : MonoBehaviour
 		if (target) target.SetActive(false);
 	}
 
-	public void TogglePause()
+    // Pause timescale and show pause UI
+    public void TogglePause()
     {
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0 : 1;
