@@ -7,12 +7,15 @@ public class GameOverController : MonoBehaviour
     [SerializeField] private TMP_Text totalTimeText;
     [SerializeField] private TMP_Text totalStrikesText;
 
-    private float totalTime = TimerManager.previousTime;
-    private int totalStrikes = LivesManager.currentStrikes;
+    private float totalTime;
+    private int totalStrikes;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        totalTime = TimerManager.previousTime;
+        totalStrikes = LivesManager.currentStrikes;
+
         if (!totalStrikesText || !totalTimeText)
         {
             Debug.LogError("Required fields are not set!");
