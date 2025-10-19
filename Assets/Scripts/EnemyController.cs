@@ -4,11 +4,15 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyController : MonoBehaviour
 {
-    public float speed = 1.0f;
-    public float minWaitTime = 3f;
-    public float maxWaitTime = 5f;
+    [Header("Movement/Randomization Settings")]
+    [SerializeField] private float speed = 1.0f;
+    [SerializeField] private float minWaitTime = 3f;
+    [SerializeField] private float maxWaitTime = 5f;
+
+    [Header("Odd One Out Settings")]
     public bool isOddOneOut = false;
 
+    // Private variables
     private Rigidbody2D rb;
     private WinManager winManager;
     private Vector2 direction = new Vector2(0, 0);
@@ -17,14 +21,16 @@ public class EnemyController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Get instances
         rb = GetComponent<Rigidbody2D>();
         winManager = GameObject.Find("WinManager").GetComponent<WinManager>();
-        changeRandomDirection();
 
+        // Change direction and start the direction coroutine
+        changeRandomDirection();
         StartCoroutine(ChangeDirectionRoutine());
     }
 
-    // Turn around when the enemy hits a wall
+    // Change direction when the enemy hits a wall or another player
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Border") || collision.gameObject.CompareTag("Enemy"))
@@ -34,6 +40,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    // Wait for between minWaitTime and maxWaitTime
     private IEnumerator ChangeDirectionRoutine()
     {
 
@@ -47,6 +54,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    // Turn to a random direction
     private void changeRandomDirection()
     {
         float randomAngle = Random.Range(0f, 360f);
@@ -55,6 +63,7 @@ public class EnemyController : MonoBehaviour
         rb.linearVelocity = direction * speed;
     }
 
+    // Detect when clicked on for win/loss calculation 
     void OnMouseDown()
     {
         if (isOddOneOut)

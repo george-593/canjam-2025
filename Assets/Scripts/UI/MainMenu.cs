@@ -13,17 +13,7 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    // Start game button functionality
-
-    public void StartGame()
-    {
-        Debug.Log("Game starting...");
-        SceneManager.LoadScene("Level1");
-    }   
-
-
     // Leaderboard button functionality
-
     public void OpenLeaderboard()
     {
         Debug.Log("Leaderboard does not currently exist or link is not setup in the code.");
