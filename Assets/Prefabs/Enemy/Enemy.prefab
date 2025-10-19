@@ -147,7 +147,7 @@ MonoBehaviour:
   smoothTime: 1
   minWaitTime: 3
   maxWaitTime: 5
-  isOddOneOut: 1
+  isOddOneOut: 0
 --- !u!1 &4473789944086779283
 GameObject:
   m_ObjectHideFlags: 0
