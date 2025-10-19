@@ -1,13 +1,13 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LivesManager : MonoBehaviour
 {
     [Header("UI Settings")]
     [SerializeField] private TMP_Text winLivesText;
 
-    [Header("Lives Settings")]
-    [SerializeField] private int currentStrikes = 0;
+    static private int currentStrikes = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,6 +17,12 @@ public class LivesManager : MonoBehaviour
             Debug.LogError("Required fields are not set!");
             enabled = false;
             return;
+        }
+
+        // Reset strikes if we're on level1
+        if (SceneManager.GetActiveScene().name == "Level1")
+        {
+            currentStrikes = 0;
         }
     }
 
