@@ -14,10 +14,13 @@ public class GameOverController : MonoBehaviour
 
     private float totalTime;
     private int totalStrikes;
+    private LeaderboardManager leaderboardManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        leaderboardManager = GameObject.Find("LeaderboardManager").GetComponent<LeaderboardManager>();
+
         totalTime = TimerManager.previousTime;
         totalStrikes = LivesManager.currentStrikes;
 
@@ -28,10 +31,12 @@ public class GameOverController : MonoBehaviour
             return;
         }
 
+        int finalScore = CalculateScore();
+
         totalTimeText.text = $"Total Time: {Utils.FormatTime(totalTime)}";
         totalStrikesText.text = $"Num of Strikes: {totalStrikes}";
-        finalScoreText.text = $"Final Score: {CalculateScore()}";
-        // Save score to leaderboard (https://github.com/george-593/canjam-2025/issues/53)
+        finalScoreText.text = $"Final Score: {finalScore}";
+        leaderboardManager.AddEntry(DateTime.Now.ToString("dd:mm:HH:mm"), finalScore);
     }
 
     private int CalculateScore()
