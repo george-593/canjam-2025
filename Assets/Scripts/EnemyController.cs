@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
     private WinManager winManager;
     private Transform spriteRendererChild;
     private Vector2 direction = new Vector2(0, 0);
+    private Vector3 intialScale = new Vector3();
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,6 +28,9 @@ public class EnemyController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         winManager = GameObject.Find("WinManager").GetComponent<WinManager>();
         spriteRendererChild = transform.Find("EnemySpriteRenderer");
+
+        // Store the initial scale of the enemy
+        intialScale = spriteRendererChild.localScale;
 
         // Change direction and start the direction coroutine
         changeRandomDirection();
