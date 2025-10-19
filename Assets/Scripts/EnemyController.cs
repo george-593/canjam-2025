@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float speed = 1.0f;
     [SerializeField] private float minWaitTime = 3f;
     [SerializeField] private float maxWaitTime = 5f;
+    [SerializeField] private float hoverScaleSize = 1.2f;
 
     [Header("Odd One Out Settings")]
     public bool isOddOneOut = false;
@@ -15,7 +16,9 @@ public class EnemyController : MonoBehaviour
     // Private variables
     private Rigidbody2D rb;
     private WinManager winManager;
+    private Transform spriteRendererChild;
     private Vector2 direction = new Vector2(0, 0);
+    private Vector3 initialScale = new Vector3();
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,6 +27,10 @@ public class EnemyController : MonoBehaviour
         // Get instances
         rb = GetComponent<Rigidbody2D>();
         winManager = GameObject.Find("WinManager").GetComponent<WinManager>();
+        spriteRendererChild = GetComponentInChildren<SpriteRenderer>().transform;
+
+        // Store the initial scale of the enemy
+        initialScale = spriteRendererChild.localScale;
 
         // Change direction and start the direction coroutine
         changeRandomDirection();
@@ -70,9 +77,22 @@ public class EnemyController : MonoBehaviour
         {
             // Win UI, move onto next level
             winManager.OnWin();
-        } else
+        }
+        else
         {
             // Deduct from lives left (https://github.com/george-593/canjam-2025/issues/14)
         }
+    }
+
+    // Increase child spriteRender size for hover effect
+    void OnMouseEnter()
+    {
+        spriteRendererChild.localScale = new Vector3(hoverScaleSize, hoverScaleSize, 1f);
+    }
+
+    // Return to normal size
+    void OnMouseExit()
+    {
+        spriteRendererChild.localScale = initialScale;
     }
 }
