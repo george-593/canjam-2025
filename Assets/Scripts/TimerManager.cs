@@ -4,7 +4,7 @@ using UnityEngine;
 public class TimerManager : MonoBehaviour
 {
     [Header("UI Settings")]
-    public TMP_Text timerHUDText;
+    [SerializeField] private TMP_Text timerHUDText;
 
     [Header("Time Settings")]
     // Total elapsed time from the last level (0 if first level)
