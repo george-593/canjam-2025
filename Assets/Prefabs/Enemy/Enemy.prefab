@@ -121,9 +121,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  hoverScaleSize: 1.2
+  rotationAmount: 0
+  smoothTime: 1
   minWaitTime: 3
   maxWaitTime: 5
-  hoverScaleSize: 1.2
   isOddOneOut: 0
 --- !u!1 &4473789944086779283
 GameObject:
