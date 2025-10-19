@@ -28,7 +28,6 @@ public class TimerManager : MonoBehaviour
         {
             previousTime = 0f;
         }
-        Debug.Log(previousTime);
     }
 
     // Update is called once per frame
