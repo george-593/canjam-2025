@@ -21,14 +21,16 @@ public class EnemyController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Get instances
         rb = GetComponent<Rigidbody2D>();
         winManager = GameObject.Find("WinManager").GetComponent<WinManager>();
-        changeRandomDirection();
 
+        // Change direction and start the direction coroutine
+        changeRandomDirection();
         StartCoroutine(ChangeDirectionRoutine());
     }
 
-    // Turn around when the enemy hits a wall
+    // Change direction when the enemy hits a wall or another player
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Border") || collision.gameObject.CompareTag("Enemy"))
@@ -38,6 +40,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    // Wait for between minWaitTime and maxWaitTime
     private IEnumerator ChangeDirectionRoutine()
     {
 
@@ -51,6 +54,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    // Turn to a random direction
     private void changeRandomDirection()
     {
         float randomAngle = Random.Range(0f, 360f);
@@ -59,6 +63,7 @@ public class EnemyController : MonoBehaviour
         rb.linearVelocity = direction * speed;
     }
 
+    // Detect when clicked on for win/loss calculation 
     void OnMouseDown()
     {
         if (isOddOneOut)
