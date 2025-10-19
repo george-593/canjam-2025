@@ -21,7 +21,7 @@ public class LivesManager : MonoBehaviour
     }
 
     // Called by EnemyController when the player makes an incorrect choice
-    public void addStike()
+    public void addStrike()
     {
         currentStrikes += 1;
     }
