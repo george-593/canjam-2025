@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float speed = 1.0f;
     [SerializeField] private float hoverScaleSize = 1.2f;
     [SerializeField] private float rotationAmount = 0f;
+    [SerializeField] private float smoothTime = 0.5f;
 
     [Header("Randomization Settings")]
     [SerializeField] private float minWaitTime = 3f;
@@ -23,6 +24,8 @@ public class EnemyController : MonoBehaviour
     private Transform spriteRendererChild;
     private Vector2 direction = new Vector2(0, 0);
     private Vector3 initialScale = new Vector3();
+    private Vector2 currentVelocity = Vector2.zero;
+    private Vector2 targetDirection;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -42,12 +45,20 @@ public class EnemyController : MonoBehaviour
         StartCoroutine(ChangeDirectionRoutine());
     }
 
+    void FixedUpdate()
+    {
+        // Smoothly change to the new direction
+        direction = Vector2.SmoothDamp(direction, targetDirection, ref currentVelocity, smoothTime, speed);
+        rb.linearVelocity = direction * speed;
+    }
+
     // Change direction when the enemy hits a wall or another player
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Border") || collision.gameObject.CompareTag("Enemy"))
         {
-            direction = Vector2.Reflect(direction.normalized, collision.contacts[0].normal);
+            targetDirection = Vector2.Reflect(direction.normalized, collision.contacts[0].normal);
+            direction = targetDirection;
             rb.linearVelocity = direction * speed;
         }
     }
@@ -69,11 +80,10 @@ public class EnemyController : MonoBehaviour
     // Turn to a random direction
     private void changeRandomDirection()
     {
-        // Random movement
+        // Generate a new random direction, which is changed in FixedUpdate
         float randomAngle = Random.Range(0f, 360f);
         float radians = randomAngle * Mathf.Deg2Rad;
-        direction = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)).normalized;
-        rb.linearVelocity = direction * speed;
+        targetDirection = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)).normalized;
 
         // Rotation
         rb.angularVelocity = rotationAmount;
