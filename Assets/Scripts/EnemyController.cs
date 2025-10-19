@@ -7,8 +7,10 @@ public class EnemyController : MonoBehaviour
     public float speed = 1.0f;
     public float minWaitTime = 3f;
     public float maxWaitTime = 5f;
+    public bool isOddOneOut = false;
 
     private Rigidbody2D rb;
+    private WinManager winManager;
     private Vector2 direction = new Vector2(0, 0);
 
 
@@ -16,6 +18,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        winManager = GameObject.Find("WinManager").GetComponent<WinManager>();
         changeRandomDirection();
 
         StartCoroutine(ChangeDirectionRoutine());
@@ -50,5 +53,17 @@ public class EnemyController : MonoBehaviour
         float radians = randomAngle * Mathf.Deg2Rad;
         direction = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)).normalized;
         rb.linearVelocity = direction * speed;
+    }
+
+    void OnMouseDown()
+    {
+        if (isOddOneOut)
+        {
+            // Win UI, move onto next level
+            winManager.OnWin();
+        } else
+        {
+            // Deduct from lives left (https://github.com/george-593/canjam-2025/issues/14)
+        }
     }
 }
