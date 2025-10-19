@@ -4,11 +4,15 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyController : MonoBehaviour
 {
-    public float speed = 1.0f;
-    public float minWaitTime = 3f;
-    public float maxWaitTime = 5f;
+    [Header("Movement/Randomization Settings")]
+    [SerializeField] private float speed = 1.0f;
+    [SerializeField] private float minWaitTime = 3f;
+    [SerializeField] private float maxWaitTime = 5f;
+
+    [Header("Odd One Out Settings")]
     public bool isOddOneOut = false;
 
+    // Private variables
     private Rigidbody2D rb;
     private WinManager winManager;
     private Vector2 direction = new Vector2(0, 0);
