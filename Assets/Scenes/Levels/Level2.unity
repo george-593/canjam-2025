@@ -332,6 +332,10 @@ PrefabInstance:
       propertyPath: isOddOneOut
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1062821113827697044, guid: 9790ef2f254dd4e4cbf774de95760094, type: 3}
+      propertyPath: rotationAmount
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 1330199813458411815, guid: 9790ef2f254dd4e4cbf774de95760094, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -1572,7 +1576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8744491471414456260, guid: b69268895f0934bc7a1fac87916a05e3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: GameOver
+      value: Level3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
