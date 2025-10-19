@@ -25,7 +25,7 @@ public class BorderHitToAnim : MonoBehaviour
 
     void Awake()
     {
-        if (!animator) animator = GetComponent<Animator>();
+        //if (!animator) animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
