@@ -664,8 +664,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 75.1}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 1.1181, y: 75.1}
+  m_SizeDelta: {x: 42.7193, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1031631386
 MonoBehaviour:
@@ -687,7 +687,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You have beat the game
+  m_text: You have defeated the Rouge Knight and saved the King
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 156c7eaabf5e54fb08ce5bad47b8cf00, type: 2}
   m_sharedMaterial: {fileID: 3452890668227504643, guid: 156c7eaabf5e54fb08ce5bad47b8cf00, type: 2}
