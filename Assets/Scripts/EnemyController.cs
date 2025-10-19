@@ -48,7 +48,7 @@ public class EnemyController : MonoBehaviour
     void FixedUpdate()
     {
         // Smoothly change to the new direction
-        direction = Vector2.SmoothDamp(direction, targetDirection, ref currentVelocity, smoothTime, speed);
+        direction = Vector2.SmoothDamp(direction, targetDirection, ref currentVelocity, smoothTime);
         rb.linearVelocity = direction * speed;
     }
 
