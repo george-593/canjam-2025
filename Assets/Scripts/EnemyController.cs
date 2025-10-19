@@ -19,6 +19,7 @@ public class EnemyController : MonoBehaviour
     // Private variables
     private Rigidbody2D rb;
     private WinManager winManager;
+    private LivesManager livesManager;
     private Transform spriteRendererChild;
     private Vector2 direction = new Vector2(0, 0);
     private Vector3 initialScale = new Vector3();
@@ -30,6 +31,7 @@ public class EnemyController : MonoBehaviour
         // Get instances
         rb = GetComponent<Rigidbody2D>();
         winManager = GameObject.Find("WinManager").GetComponent<WinManager>();
+        livesManager = GameObject.Find("AdditionalsHolder").GetComponent<LivesManager>();
         spriteRendererChild = GetComponentInChildren<SpriteRenderer>().transform;
 
         // Store the initial scale of the enemy
@@ -87,7 +89,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            // Deduct from lives left (https://github.com/george-593/canjam-2025/issues/14)
+            livesManager.addStrike();
         }
     }
 
