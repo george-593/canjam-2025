@@ -31,6 +31,7 @@ public class BorderHitToAnim : MonoBehaviour
         {
             Vector2 vel = rb.linearVelocity;
             CheckAndTriggerWalkUp(vel);
+            CheckAndTriggerWalkDown(vel);
         }
     }
 
@@ -39,6 +40,9 @@ public class BorderHitToAnim : MonoBehaviour
         if (col.collider.CompareTag("Border") || col.collider.CompareTag("Enemy"))
             animator?.SetTrigger("HitBorder");
     }
+
+
+
 
     void CheckAndTriggerWalkUp(Vector2 movement)
     {
@@ -51,6 +55,19 @@ public class BorderHitToAnim : MonoBehaviour
         }
 
         wasWalkingUp = isWalkingUp;
+    }
+
+    void CheckAndTriggerWalkDown(Vector2 movement)
+    {
+        bool isWalkingDown = movement.y < walkDownThreshold;
+
+        if (isWalkingDown && !wasWalkingDown)
+        {
+            if (animator != null && !string.IsNullOrEmpty(walkDownTrigger))
+                animator.SetTrigger(walkDownTrigger);
+        }
+
+        wasWalkingDown = isWalkingDown;
     }
 }
 
