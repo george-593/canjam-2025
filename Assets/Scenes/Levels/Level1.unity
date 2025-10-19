@@ -331,6 +331,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3494464665661616643, guid: 9790ef2f254dd4e4cbf774de95760094, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494464665661616643, guid: 9790ef2f254dd4e4cbf774de95760094, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4944833836132009569, guid: 9790ef2f254dd4e4cbf774de95760094, type: 3}
       propertyPath: m_Mass
       value: 1.053276
@@ -383,10 +391,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6498963393902419806, guid: 9790ef2f254dd4e4cbf774de95760094, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4473789944086779283, guid: 9790ef2f254dd4e4cbf774de95760094, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1303681934}
   m_SourcePrefab: {fileID: 100100000, guid: 9790ef2f254dd4e4cbf774de95760094, type: 3}
 --- !u!4 &505079199 stripped
 Transform:
@@ -1186,6 +1201,33 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1303681932 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4473789944086779283, guid: 9790ef2f254dd4e4cbf774de95760094, type: 3}
+  m_PrefabInstance: {fileID: 505079198}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1303681934
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303681932}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dd60ab754b09c41deb239f3a4bf5ed1d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1365617612
 PrefabInstance:
   m_ObjectHideFlags: 0
