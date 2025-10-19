@@ -7,7 +7,7 @@ public class LivesManager : MonoBehaviour
     [Header("UI Settings")]
     [SerializeField] private TMP_Text winLivesText;
 
-    static private int currentStrikes = 0;
+    static public int currentStrikes = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

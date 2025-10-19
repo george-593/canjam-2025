@@ -9,7 +9,7 @@ public class TimerManager : MonoBehaviour
     [SerializeField] private TMP_Text winElapsedTime;
     [SerializeField] private TMP_Text winCurrentTime;
 
-    static private float previousTime;
+    static public float previousTime;
     private float currentTime;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -43,7 +43,7 @@ public class TimerManager : MonoBehaviour
         timerHUDText.text = $"Time: {FormatTime(currentTime)}";
     }
     
-    private string FormatTime(float time)
+    public string FormatTime(float time)
     {
         int mins = Mathf.FloorToInt(time / 60);
         int seconds = Mathf.FloorToInt(time % 60);
