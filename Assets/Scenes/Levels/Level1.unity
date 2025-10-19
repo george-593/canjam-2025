@@ -392,6 +392,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6498963393902419806, guid: 9790ef2f254dd4e4cbf774de95760094, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2075425217024113629, guid: 168daff2186fd4142bdbcef5f3142354, type: 3}
+    - target: {fileID: 6498963393902419806, guid: 9790ef2f254dd4e4cbf774de95760094, type: 3}
       propertyPath: m_DrawMode
       value: 0
       objectReference: {fileID: 0}
@@ -399,6 +403,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1330199813458411815, guid: 9790ef2f254dd4e4cbf774de95760094, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1993300868}
     - targetCorrespondingSourceObject: {fileID: 4473789944086779283, guid: 9790ef2f254dd4e4cbf774de95760094, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1303681934}
@@ -1544,6 +1551,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1993300864 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1330199813458411815, guid: 9790ef2f254dd4e4cbf774de95760094, type: 3}
+  m_PrefabInstance: {fileID: 505079198}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1993300868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993300864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ce329a19a05a49fd8390d3d232fe7c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1303681934}
+  walkUpTrigger: TWalkUp
+  walkDownTrigger: TWalkDown
+  walkUpThreshold: 0.1
+  walkDownThreshold: -0.1
+  watchRigidbody: 1
 --- !u!224 &2057490579 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2381047831326130724, guid: b69268895f0934bc7a1fac87916a05e3, type: 3}
