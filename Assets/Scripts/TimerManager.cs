@@ -16,7 +16,7 @@ public class TimerManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (!timerHUDText)
+        if (!timerHUDText || !winElapsedTime || !winCurrentTime)
         {
             Debug.LogError("Required fields are not set!");
             enabled = false;
