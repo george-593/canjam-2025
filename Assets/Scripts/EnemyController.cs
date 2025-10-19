@@ -4,11 +4,13 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyController : MonoBehaviour
 {
-    [Header("Movement/Randomization Settings")]
+    [Header("Movement Settings")]
     [SerializeField] private float speed = 1.0f;
+    [SerializeField] private float hoverScaleSize = 1.2f;
+
+    [Header("Randomization Settings")]
     [SerializeField] private float minWaitTime = 3f;
     [SerializeField] private float maxWaitTime = 5f;
-    [SerializeField] private float hoverScaleSize = 1.2f;
 
     [Header("Odd One Out Settings")]
     public bool isOddOneOut = false;
