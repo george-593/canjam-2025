@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class LeaderboardUILoader : MonoBehaviour
 {
@@ -61,7 +62,7 @@ public class LeaderboardUILoader : MonoBehaviour
             TextMeshProUGUI timeText = entry.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
 
             nameText.text = lap.playerName;
-            timeText.text = string.Format("{0:.00}", lap.score) + "s";
+            timeText.text = Convert.ToString(lap.score);
         }
     }
 }
