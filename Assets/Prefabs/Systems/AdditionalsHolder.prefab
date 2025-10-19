@@ -48,8 +48,6 @@ MonoBehaviour:
   timerHUDText: {fileID: 0}
   winElapsedTime: {fileID: 0}
   winCurrentTime: {fileID: 0}
-  previousTime: 0
-  currentTime: 0
 --- !u!114 &5911729098148457778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,4 +61,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winLivesText: {fileID: 0}
-  currentStrikes: 0
+  HUDLivesText: {fileID: 0}
