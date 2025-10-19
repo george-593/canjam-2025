@@ -40,15 +40,7 @@ public class TimerManager : MonoBehaviour
 
     private void UpdateUI()
     {
-        timerHUDText.text = $"Time: {FormatTime(currentTime)}";
-    }
-    
-    public string FormatTime(float time)
-    {
-        int mins = Mathf.FloorToInt(time / 60);
-        int seconds = Mathf.FloorToInt(time % 60);
-        int milliseconds = Mathf.FloorToInt((time * 1000) % 1000);
-        return string.Format("{0:00}:{1:00}.{2:00}", mins, seconds, milliseconds/10);
+        timerHUDText.text = $"Time: {Utils.FormatTime(currentTime)}";
     }
 
     // Called by WinManager when it wants time related win UI to be updated
@@ -56,7 +48,7 @@ public class TimerManager : MonoBehaviour
     {
         previousTime += currentTime;
 
-        winElapsedTime.text = $"Total Time: {FormatTime(previousTime)}";
-        winCurrentTime.text = $"This Level Time: {FormatTime(currentTime)}";
+        winElapsedTime.text = $"Total Time: {Utils.FormatTime(previousTime)}";
+        winCurrentTime.text = $"This Level Time: {Utils.FormatTime(currentTime)}";
     }
 }
