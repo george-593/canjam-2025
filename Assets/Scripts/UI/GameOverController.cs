@@ -36,7 +36,7 @@ public class GameOverController : MonoBehaviour
         totalTimeText.text = $"Total Time: {Utils.FormatTime(totalTime)}";
         totalStrikesText.text = $"Num of Strikes: {totalStrikes}";
         finalScoreText.text = $"Final Score: {finalScore}";
-        leaderboardManager.AddEntry(DateTime.Now.ToString("dd:MM:HH:mm"), finalScore);
+        leaderboardManager.AddEntry("Player", finalScore);
     }
 
     private int CalculateScore()
