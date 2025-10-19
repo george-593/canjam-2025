@@ -6,12 +6,16 @@ public class BorderHitToAnim : MonoBehaviour
 
     [SerializeField] string walkUpTrigger = "TWalkUp";
     [SerializeField] string walkDownTrigger = "TWalkDown";
+    [SerializeField] string walkLeftTrigger = "TWalkLeft";
 
     // Walking up threshold before triggering walk up animation.
     [SerializeField] float walkUpThreshold = 0.1f;
 
     // Walking down threshold before triggering walk down animation.
     [SerializeField] float walkDownThreshold = -0.1f;
+
+    // Walking left threshold before triggering walk left animation.
+    [SerializeField] float walkLeftThreshold = -0.1f;
 
     [SerializeField] bool watchRigidbody = true;
 
@@ -32,6 +36,7 @@ public class BorderHitToAnim : MonoBehaviour
             Vector2 vel = rb.linearVelocity;
             CheckAndTriggerWalkUp(vel);
             CheckAndTriggerWalkDown(vel);
+            CheckAndTriggerWalkLeft(vel);
         }
     }
 
@@ -68,6 +73,15 @@ public class BorderHitToAnim : MonoBehaviour
         }
 
         wasWalkingDown = isWalkingDown;
+    }
+
+    void CheckAndTriggerWalkLeft(Vector2 movement)
+    {
+        if (movement.x < walkLeftThreshold)
+        {
+            if (animator != null && !string.IsNullOrEmpty(walkLeftTrigger))
+                animator.SetTrigger(walkLeftTrigger);
+        }
     }
 }
 
