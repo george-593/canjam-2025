@@ -1843,7 +1843,7 @@ GameObject:
   - component: {fileID: 1957980328}
   - component: {fileID: 1957980327}
   m_Layer: 5
-  m_Name: WInMngrBG
+  m_Name: WinMngrBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
