@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private float speed = 1.0f;
     [SerializeField] private float hoverScaleSize = 1.2f;
+    [SerializeField] private float rotationAmount = 0f;
 
     [Header("Randomization Settings")]
     [SerializeField] private float minWaitTime = 3f;
@@ -66,10 +67,14 @@ public class EnemyController : MonoBehaviour
     // Turn to a random direction
     private void changeRandomDirection()
     {
+        // Random movement
         float randomAngle = Random.Range(0f, 360f);
         float radians = randomAngle * Mathf.Deg2Rad;
         direction = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)).normalized;
         rb.linearVelocity = direction * speed;
+
+        // Rotation
+        rb.angularVelocity = rotationAmount;
     }
 
     // Detect when clicked on for win/loss calculation 
